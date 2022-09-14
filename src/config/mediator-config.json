@@ -1,0 +1,41 @@
+{
+    "urn": "urn:mediator:dhis2",
+    "version": "1.0.0",
+    "name": "dhis2-mediator",
+    "description": "This mediator is intended for posting ptracker data to DHIS2 API.",
+    "defaultChannelConfig": [
+        {
+            "name": "dhis2-mediator",
+            "urlPattern": "^/dhis2-mediator$",
+            "routes": [
+                {
+                    "name": "DHIS2 Mediator Route",
+                    "host": "dhis2-mediator",
+                    "path": "/",
+                    "port": "6000",
+                    "primary": true,
+                    "type": "http"
+                }
+            ],
+            "allow": [
+                "admin"
+            ],
+            "methods": [
+                "GET",
+                "PATCH"
+            ],
+            "type": "http"
+        }
+    ],
+    "endpoints": [
+        {
+            "name": "DHIS2 Mediator Endpoint",
+            "host": "db-file-mediator",
+            "path": "/",
+            "port": "3000",
+            "primary": false,
+            "type": "http"
+        }
+    ],
+    "configDefs": []
+}
