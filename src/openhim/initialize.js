@@ -13,6 +13,7 @@ const openhimConfig = {
     urn: mediatorConfig.urn
 }
 const emitter = activateHeartbeat(openhimConfig);
+//register the mediator to openhim
 registerMediator(openhimConfig, mediatorConfig, err => {
     if (err) {
         throw new Error(`Failed to register mediator. Check your Config. ${err}`)

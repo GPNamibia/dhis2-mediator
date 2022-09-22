@@ -1,4 +1,4 @@
-
+//Enter JSON response into a database table
 module.exports = (sequelize, DataTypes) => {
     const log_tables = sequelize.define("log_tables", {
         _id: {

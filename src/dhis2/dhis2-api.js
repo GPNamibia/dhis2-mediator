@@ -8,6 +8,7 @@ const parser = binaryCSV()
  class dhis2API {
   constructor() {}
 
+  // sending request to dhis2
   sendRequest(options) {
     return new Promise((resolve, reject) => {
       request(options, function (err, response, body) {
@@ -23,7 +24,7 @@ const parser = binaryCSV()
   }
 
   
-
+//post ptracker data to dhis2
   postPtrackerData() {
     let options = { 
       method: 'POST',

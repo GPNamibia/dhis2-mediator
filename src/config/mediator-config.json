@@ -30,7 +30,7 @@
     "endpoints": [
         {
             "name": "DHIS2 Mediator Endpoint",
-            "host": "db-file-mediator",
+            "host": "dhis2-mediator",
             "path": "/",
             "port": "3000",
             "primary": false,
