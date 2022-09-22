@@ -25,7 +25,7 @@ const parser = binaryCSV()
 
   
 //post ptracker data to dhis2
-  postPtrackerData() {
+  postPtrackerData(csvPath) {
     let options = { 
       method: 'POST',
       url: privateConfig.dhis2Config.apiURL+`/api/dataValueSets`,
@@ -36,8 +36,9 @@ const parser = binaryCSV()
         user: privateConfig.dhis2Config.username,
         pass: privateConfig.dhis2Config.password
       },
-      body:FileSystem.createReadStream('./src/dhis2/dumpData.csv')
+      body:JSON.stringify(csvPath)
     }
+    console.log(options.body)
     return this.sendRequest(options)
   
 }
