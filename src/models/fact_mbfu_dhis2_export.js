@@ -1,58 +1,49 @@
-//Enter JSON response into a database table
 module.exports = (sequelize, DataTypes) => {
-    const log_tables = sequelize.define("log_tables", {
-        _id: {
-            type: DataTypes.STRING,
-            allowNull: true,
-            validate: {
-              notEmpty: true,
-            },
-          },
-      date: {
-        type: DataTypes.DATEONLY,
-        allowNull: true,
-        validate: {
-          notEmpty: true,
-        },
-      },
-      type: {
+    const fact_mbfu_dhis2_export = sequelize.define("fact_mbfu_dhis2_export", {
+      data_element: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
           notEmpty: true,
         },
       },
-      response_text: {
+      period: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
           notEmpty: true,
         },
       },
-      response_status: {
+      org_unit_uid: {
         type: DataTypes.STRING,
         allowNull: true,
         validate: {
           notEmpty: true,
         },
       },
-      last_resend_date: {
-        type: DataTypes.DATEONLY,
+      COCUID: {
+        type: DataTypes.STRING,
         allowNull: true,
         validate: {
           notEmpty: true,
         },
       },
-      details: {
+      AOCUID: {
         type: DataTypes.STRING,
         allowNull: true,
-        validate:{
-            notEmpty: true,
+        validate: {
+          notEmpty: true,
         },
-
+      },
+      datavalue: {
+        type: DataTypes.INTEGER,
+        allowNull: true,
+        validate: {
+          notEmpty: true,
+        },
       },
     });
-    return log_tables;
+    return fact_mbfu_dhis2_export;
   };
   
   

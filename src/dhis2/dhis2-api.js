@@ -38,11 +38,10 @@ const parser = binaryCSV()
       },
       body:JSON.stringify(csvPath)
     }
-    console.log(options.body)
-    return this.sendRequest(options)
+    return this.sendRequest(JSON.parse(options))
   
 }
-  
+//post mbfu data to DHIS2  
 
 }
 
