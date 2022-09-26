@@ -36,12 +36,12 @@ const parser = binaryCSV()
         user: privateConfig.dhis2Config.username,
         pass: privateConfig.dhis2Config.password
       },
-      body:JSON.stringify(csvPath)
+      body:FileSystem.createReadStream(csvPath)
     }
-    return this.sendRequest(JSON.parse(options))
+    return this.sendRequest(options)
   
 }
-//post mbfu data to DHIS2  
+  
 
 }
 
