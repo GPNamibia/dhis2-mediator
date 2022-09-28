@@ -5,13 +5,13 @@ const pushData = require('./dhis2/pushData');
 const {getQueryParameters}= require('./openhim/initialize');
 const cors =  require('cors');
 
-app.all('*', async (req, res) => {
+app.get('/openhim', async (req, res) => {
   // Starts when a new request is triggered by the polling channel
   console.log(`\n---------------------------------------------------------------------------------`,
     `\n${ new Date().toUTCString('en-GB', { timeZone: 'UTC' }) }  - `,
     `DHIS 2 <=> Database File Mediator has received a new request. \n`
   );
-  pushData.postDataToDhis2()
+   pushData.postDataToDhis2()
 });
 //middlleware
 app.use(express.json())
@@ -22,7 +22,7 @@ app.use(express.urlencoded({extended: true}))
 const router = require('./routes/csvRouter')
 app.use('/api/csv', router)
 
-//openhim
+// //openhim
 getQueryParameters();
 
 

@@ -36,6 +36,7 @@ async function postDataToDhis2() {
 
 //save csv data before sending to DHIS2
 function saveCsvFile(csvPath, csvData) {
+  console.log(csvData)
   const ws = fs.createWriteStream(`./src/csvData/${csvPath}.csv`);
   fastcsv
     .write(csvData, { headers: true })
