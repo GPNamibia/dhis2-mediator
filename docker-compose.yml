@@ -1,4 +1,3 @@
-
 version: '3'
 services:
   mongo:
@@ -47,22 +46,14 @@ services:
       retries: 3
     # volumes:
     #   - ./default.json:/usr/share/nginx/html/config/default.json
-  mysql-db:
-    container_name: mysql-repo
-    image: mysql
-    command: --default-authentication-plugin=mysql_native_password
-    environment:
-      MYSQL_ROOT_PASSWORD: password
-    restart: always
-    ports:
-      - "127.0.0.1:3307:3306"
+    
 
   dhis2-mediator:
     container_name: dhis2_mediator
     build:
-      ./dhis2-mediator.globalhealthapp.net
+      ./
     ports:
-      - "127.0.0.1:6000:6000"
+      - "127.0.0.1:4000:4000"
     restart: unless-stopped
 
 volumes:
@@ -72,4 +63,3 @@ networks:
   default:
     name: openHIM
     external: true
-      
