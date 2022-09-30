@@ -4,7 +4,7 @@ const sinon = require('sinon');
 const expect = chai.expect;
 const sinonChai = require('sinon-chai');
 chai.use(sinonChai);
-const dummyData = require('./test/dummyData/fact_anc_dhis2_export.csv')
+
 
 describe('Post Ptracker Data Function: postPtrackerData()', () => {
     const sandbox = sinon.createSandbox();
