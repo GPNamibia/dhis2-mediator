@@ -23,8 +23,8 @@ const router = require('./routes/csvRouter')
 app.use('/api/csv', router)
 
 
-//openhim
-getQueryParameters();
+// //openhim
+// getQueryParameters();
 
 
 //Server PORT
