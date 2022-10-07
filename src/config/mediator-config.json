@@ -12,7 +12,7 @@
                     "name": "DHIS2 Mediator Route",
                     "host": "dhis2-mediator",
                     "path": "/",
-                    "port": "4000",
+                    "port": "4400",
                     "primary": true,
                     "type": "http"
                 }
