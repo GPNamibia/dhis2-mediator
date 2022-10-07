@@ -33,6 +33,11 @@ async function postDataToDhis2() {
   }
 }
 
+async function getDataAndPostToDhis2(){
+  await this.postDataToDhis2().then(async(res)=>{
+    return res;
+})
+}; 
 
 //save csv data before sending to DHIS2
 function saveCsvFile(csvPath, csvData) {
@@ -63,5 +68,6 @@ module.exports = {
   postPtrackerData,
   getCsv,
   saveCsvFile,
-  postDataToDhis2
+  postDataToDhis2,
+  getDataAndPostToDhis2
 }
