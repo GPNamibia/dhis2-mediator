@@ -4,6 +4,8 @@ const app = express();
 const pushData = require('./dhis2/pushData');
 const {getQueryParameters}= require('./openhim/initialize');
 const cors =  require('cors');
+var bodyParser = require('body-parser');
+
 
 app.get('/openhim', async (req, res) => {
   // Starts when a new request is triggered by the polling channel
@@ -17,10 +19,13 @@ app.get('/openhim', async (req, res) => {
          res.json('PTracker data succesfully sent to DHIS2');
  }).catch(error => { res.json(`Error retrieving PTracker Data: ${error}`) })
 });
+
 //middlleware
-app.use(express.json())
+//app.use(express.json())
 app.use(cors());
-app.use(express.urlencoded({extended: true}))
+// app.use(express.urlencoded({extended: true}))
+app.use(bodyParser.json({limit: "50000000000000000mb"}));
+app.use(bodyParser.urlencoded({limit: "50000000000000000mb", extended: true, parameterLimit:50000000000000000}));
 
 //routers
 const router = require('./routes/csvRouter')
