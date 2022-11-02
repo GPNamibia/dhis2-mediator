@@ -6,6 +6,7 @@ const multer = require("multer");
 const fastcsv = require("fast-csv");
 const csv = require('csv-parser');
 const privateConfig = require('../config/private-config.json');
+var convert = require('xml-js');
 
 const { convertArrayToCSV } = require('convert-array-to-csv');
 const converter = require('convert-array-to-csv');
@@ -15,7 +16,7 @@ const converter = require('convert-array-to-csv');
 //A function that takes reponse from dhis2
 async function postPtrackerData(csvPath) {
   await dhis2.postPtrackerData(`./src/csvData/${csvPath}.csv`).then((response) => {
-    console.log(response.body)
+    console.log(convert.xml2json(response.body, { compact: true, spaces: 6 }));
   }).catch(error => {
     console.log(error)
   })
